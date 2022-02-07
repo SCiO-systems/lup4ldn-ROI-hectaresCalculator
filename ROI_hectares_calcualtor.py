@@ -43,7 +43,10 @@ def lambda_handler(event, context):
     response = requests.post("https://lambda.qvantum.polygons-intersection.scio.services", json = json_file)
     
     if response.text=="not intersecting geometries":
-        return response
+        return {
+             "statusCode": 200,
+             "body": "not intersecting geometries"
+             }
     else:
         json_file = response.json()
  
