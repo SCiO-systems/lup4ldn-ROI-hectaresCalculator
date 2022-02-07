@@ -1,6 +1,0 @@
-numpy
-pathlib
-boto3
-botocore
-geopandas
-gdal==3.0.4
