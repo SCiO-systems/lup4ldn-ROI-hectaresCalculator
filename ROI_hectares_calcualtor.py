@@ -79,7 +79,7 @@ def lambda_handler(event, context):
         intersect_area_array = np.where(intersect_area_array!=-32768,1,-32768)
         
         unique,counts = np.unique(intersect_area_array,return_counts=True)
-        total_hectares = 9*int(counts[-1])
+        total_hectares = int(counts[-1])
         return {
              "statusCode": 200,
              "body": total_hectares
