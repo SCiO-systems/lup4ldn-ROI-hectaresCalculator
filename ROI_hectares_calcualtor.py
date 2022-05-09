@@ -9,7 +9,7 @@ from botocore.exceptions import ClientError
 import logging
 
 s3 = boto3.client('s3')
-#%%
+
 
 def lambda_handler(event, context):
 
@@ -37,11 +37,10 @@ def lambda_handler(event, context):
             "body": e
         }
     
-    
+
     #for aws
     path_to_tmp = "/tmp/"
     s3_file_path = '/vsis3/lup4ldn-default-global-datasets/'
-    
     path_to_100m_grid = s3_file_path + "global_100m_grid.tif"
     save_intersection_path = path_to_tmp + "intersection.tif"
     
