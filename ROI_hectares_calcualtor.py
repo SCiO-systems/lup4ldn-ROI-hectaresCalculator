@@ -3,13 +3,16 @@ import numpy as np
 import os
 import sys
 import requests
+# import numpy.ma as ma
+# import copy
 import json
 import boto3
 from botocore.exceptions import ClientError
+# import geopandas as gpd
 import logging
 
 s3 = boto3.client('s3')
-
+#%%
 
 def lambda_handler(event, context):
 
@@ -37,9 +40,14 @@ def lambda_handler(event, context):
             "body": e
         }
     
-
+    
+    #for local
+    # path_to_tmp = "/home/christos/Desktop/SCiO_Projects/lup4ldn/data/cropped_files/"
     #for aws
     path_to_tmp = "/tmp/"
+    
+    # s3_file_path = '/vsis3/lup4ldn-dataset' + "/" + country_iso + "/"
+    # s3_file_path = "https://lup4ldn-default-global-datasets.s3.eu-central-1.amazonaws.com/"
     s3_file_path = '/vsis3/lup4ldn-default-global-datasets/'
     path_to_100m_grid = s3_file_path + "global_100m_grid.tif"
     save_intersection_path = path_to_tmp + "intersection.tif"
